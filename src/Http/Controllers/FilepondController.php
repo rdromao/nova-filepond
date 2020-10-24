@@ -59,7 +59,7 @@ class FilepondController extends BaseController
         }
 
         $tempPath = '/tmp';
-        $filePath = tempnam($tempPath, 'nova-filepond-');
+        $filePath = tempnam($tempPath, $file->getClientOriginalName());
         $filePath .= '.' . $file->guessClientExtension();
         $filePathParts = pathinfo($filePath);
         $finalPath = $file->move($filePathParts[ 'dirname' ], $filePathParts[ 'basename' ]);
